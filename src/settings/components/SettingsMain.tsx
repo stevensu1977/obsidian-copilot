@@ -49,6 +49,11 @@ const SettingsMain: React.FC<{ plugin: CopilotPlugin; reloadPlugin: () => Promis
         setAzureOpenAIApiEmbeddingDeploymentName={(value) =>
           updateSettings({ azureOpenAIApiEmbeddingDeploymentName: value })
         }
+        setAmazonBedrockApiKey={(value) => updateSettings({ amazonBedrockApiKey: value })}
+        setAmazonBedrockApiSecretKey={(value) =>
+          updateSettings({ amazonBedrockApiSecretKey: value })
+        }
+        setAmazonBedrockRegion={(value) => updateSettings({ amazonBedrockRegion: value })}
         setGroqApiKey={(value) => updateSettings({ groqApiKey: value })}
         setCohereApiKey={(value) => updateSettings({ cohereApiKey: value })}
       />

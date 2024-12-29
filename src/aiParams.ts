@@ -16,6 +16,9 @@ export interface ModelConfig {
   azureOpenAIApiInstanceName?: string;
   azureOpenAIApiDeploymentName?: string;
   azureOpenAIApiVersion?: string;
+  amazonBedrockApiKey?: string;
+  amazonBedrockApiSecretKey?: string;
+  amazonBedrockRegion?: string;
   // Google and TogetherAI API key share this property
   apiKey?: string;
   openAIProxyBaseUrl?: string;
@@ -35,6 +38,9 @@ export interface LangChainParams {
   azureOpenAIApiDeploymentName: string;
   azureOpenAIApiVersion: string;
   azureOpenAIApiEmbeddingDeploymentName: string;
+  amazonBedrockApiKey: string;
+  amazonBedrockApiSecretKey: string;
+  amazonBedrockRegion: string;
   googleApiKey: string;
   openRouterAiApiKey: string;
   embeddingModelKey: string; // name | provider, e.g. "text-embedding-3-large|openai"

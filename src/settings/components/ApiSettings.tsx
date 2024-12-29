@@ -23,6 +23,12 @@ interface ApiSettingsProps {
   setAzureOpenAIApiVersion: (value: string) => void;
   azureOpenAIApiEmbeddingDeploymentName: string;
   setAzureOpenAIApiEmbeddingDeploymentName: (value: string) => void;
+  amazonBedrockApiKey: string;
+  setAmazonBedrockApiKey: (value: string) => void;
+  amazonBedrockApiSecretKey: string;
+  setAmazonBedrockApiSecretKey: (value: string) => void;
+  amazonBedrockRegion: string;
+  setAmazonBedrockRegion: (value: string) => void;
   groqApiKey: string;
   setGroqApiKey: (value: string) => void;
   cohereApiKey: string;
@@ -50,6 +56,12 @@ const ApiSettings: React.FC<ApiSettingsProps> = ({
   setAzureOpenAIApiVersion,
   azureOpenAIApiEmbeddingDeploymentName,
   setAzureOpenAIApiEmbeddingDeploymentName,
+  amazonBedrockApiKey,
+  setAmazonBedrockApiKey,
+  amazonBedrockApiSecretKey,
+  setAmazonBedrockApiSecretKey,
+  amazonBedrockRegion,
+  setAmazonBedrockRegion,
   groqApiKey,
   setGroqApiKey,
   cohereApiKey,
@@ -214,6 +226,30 @@ const ApiSettings: React.FC<ApiSettingsProps> = ({
             value={azureOpenAIApiEmbeddingDeploymentName}
             setValue={setAzureOpenAIApiEmbeddingDeploymentName}
             placeholder="Enter Azure OpenAI API Embedding Deployment Name"
+            type="text"
+          />
+        </div>
+      </Collapsible>
+
+      <Collapsible title="Amazon Bedrock API Settings">
+        <div>
+          <ApiSetting
+            title="Amazon Bedrock API Key"
+            value={amazonBedrockApiKey}
+            setValue={setAmazonBedrockApiKey}
+            placeholder="Enter Amazon Bedrock API Key"
+          />
+          <ApiSetting
+            title="Amazon Bedrock API Secret Key"
+            value={amazonBedrockApiSecretKey}
+            setValue={setAmazonBedrockApiSecretKey}
+            placeholder="Enter Amazon Bedrock API Secret Key"
+          />
+          <ApiSetting
+            title="Amazon Bedrock Region"
+            value={amazonBedrockRegion}
+            setValue={setAmazonBedrockRegion}
+            placeholder="Enter Amazon Bedrock Region"
             type="text"
           />
         </div>

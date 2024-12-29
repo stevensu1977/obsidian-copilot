@@ -454,14 +454,19 @@ export default class CopilotPlugin extends Plugin {
   }
 
   async activateView(): Promise<void> {
-    this.app.workspace.detachLeavesOfType(CHAT_VIEWTYPE);
-    this.activateViewPromise = this.app.workspace.getRightLeaf(false).setViewState({
-      type: CHAT_VIEWTYPE,
-      active: true,
-    });
-    await this.activateViewPromise;
-    this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(CHAT_VIEWTYPE)[0]);
-    this.processChatIsVisible(true);
+    if (this.app?.workspace?.getRightLeaf(false)) {
+      this.app.workspace.detachLeavesOfType(CHAT_VIEWTYPE);
+      const leaf = this.app.workspace.getRightLeaf(false);
+      if (leaf) {
+        this.activateViewPromise = leaf.setViewState({
+          type: CHAT_VIEWTYPE,
+          active: true,
+        });
+        await this.activateViewPromise;
+      }
+      this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(CHAT_VIEWTYPE)[0]);
+      this.processChatIsVisible(true);
+    }
   }
 
   async deactivateView() {
@@ -589,6 +594,9 @@ export default class CopilotPlugin extends Plugin {
       azureOpenAIApiDeploymentName,
       azureOpenAIApiVersion,
       azureOpenAIApiEmbeddingDeploymentName,
+      amazonBedrockApiKey,
+      amazonBedrockApiSecretKey,
+      amazonBedrockRegion,
       googleApiKey,
       openRouterAiApiKey,
       embeddingModelKey,
@@ -609,6 +617,9 @@ export default class CopilotPlugin extends Plugin {
       azureOpenAIApiDeploymentName,
       azureOpenAIApiVersion,
       azureOpenAIApiEmbeddingDeploymentName,
+      amazonBedrockApiKey,
+      amazonBedrockApiSecretKey,
+      amazonBedrockRegion,
       googleApiKey,
       openRouterAiApiKey,
       modelKey: this.settings.defaultModelKey,

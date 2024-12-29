@@ -20,6 +20,9 @@ export interface CopilotSettings {
   azureOpenAIApiDeploymentName: string;
   azureOpenAIApiVersion: string;
   azureOpenAIApiEmbeddingDeploymentName: string;
+  amazonBedrockApiKey: string;
+  amazonBedrockApiSecretKey: string;
+  amazonBedrockRegion: string;
   googleApiKey: string;
   openRouterAiApiKey: string;
   defaultChainType: ChainType;
